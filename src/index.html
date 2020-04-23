@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Movies Gallery</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <h1>Movies Gallery</h1>
+
+    <div class="wrapper">
+        <div class="movie-filter">
+            <label>Select genre:
+                <select class="choose-genre" name="">
+                    <option value="">Select...</option>
+                    <option value="action">Action</option>
+                    <option value="crime">Crime</option>
+                    <option value="comedy">Comedy</option>
+                    <option value="drama">Drama</option>
+                </select>
+            </label>
+        </div>
+        <div id="container">
+            <!-- all content here!-->
+        </div>
+        <div id="favorite-list">
+            <!-- favourites movies -->
+        </div>
+    </div>
+
+    <div id="movie-details-modal">
+        <!-- movie details modal -->
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.min.js"></script>
+
+    <script id="blocks" type="text/x-handlebars-template">
+        {{#each blocks}}
+            <div class="card" data-id={{id}}>
+                <img src={{img}} alt="movie image">
+                <p class="movie-name">{{name}}</p>
+                <p class="movie-year">{{year}}</p>
+                <div class="addFavorite">
+                    <i class="far fa-heart fa-lg"></i>
+                </div>
+            </div>
+        {{/each}}
+    </script>
+    <script id="favorite" type="text/x-handlebars-template">
+        <h2>Favorite list</h2>
+        {{#each list}}
+            <div class="list-item">
+                <p>{{name}}</p>
+                <div class="remove-movie" data-id={{id}}>
+                    <i class="far fa-times-circle fa-lg"></i>
+                </div>
+            </div>
+        {{/each}}
+    </script>
+    <script id="movie-details-template" type="text/x-handlebars-template">
+        <div class="movie-details">
+            <img class="movie-details-img" src={{img}} alt="Movie-Image">
+            <div class="movie-details-desc">
+                <h3>{{name}}</h3>
+                <p>{{description}}</p>
+            </div>
+            <div class="movie-details-other-desc">
+                <p>Director: {{director}}</p>
+                <p>Starring:
+                    {{#each starring}}
+                        <span>{{this}}, </span>
+                    {{/each}}
+                </p>
+            </div>
+            <p class="movie-details-year">Year: {{year}}</p>
+            <div class="movie-details-genres">
+                {{#each genres}}
+                    <p>{{this}}</p>
+                {{/each}}
+            </div>
+            <div class="close">
+                <i class="far fa-times-circle fa-2x"></i>
+            </div>
+        </div>
+    </script>
+
+
+    <script src="js/script.js"></script>
+</body>
+</html>
