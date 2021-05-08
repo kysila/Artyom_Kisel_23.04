@@ -18,7 +18,7 @@
     "gulp-js-minify": "0.0.3",
     "gulp-rigger": "^0.5.8",
     "gulp-sass": "^4.0.2",
-    "handlebars": "^4.7.6"
+    "handlebars": "^4.7.7"
   },
   "dependencies": {}
 }
